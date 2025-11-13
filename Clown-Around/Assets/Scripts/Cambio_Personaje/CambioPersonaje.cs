@@ -43,6 +43,8 @@ public class CambioPersonaje : MonoBehaviour
             freeLookCam.Follow = camTarget2;
             freeLookCam.LookAt = camTarget2;
             activo = 2;
+            //personaje2.tag = "Player";
+            //personaje1.tag = "player2";
         }
         else
         {
@@ -51,6 +53,8 @@ public class CambioPersonaje : MonoBehaviour
             freeLookCam.Follow = camTarget1;
             freeLookCam.LookAt = camTarget1;
             activo = 1;
+            //personaje1.tag = "Player";
+            //personaje2.tag = "player2";
         }
     }
 }

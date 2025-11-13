@@ -7,7 +7,7 @@ public class HoleTeleport : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("player2"))
         {
-            Debug.Log("Funca");
+            //Debug.Log("Funca");
             CharacterController cc = other.GetComponent<CharacterController>();
         if (cc)
         {
