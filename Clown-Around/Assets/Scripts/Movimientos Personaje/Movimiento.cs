@@ -18,7 +18,7 @@ public class Movimiento : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context) {
         moveInput = context.ReadValue<Vector2>();
-        Debug.Log("Move: " + moveInput);
+        //Debug.Log("Move: " + moveInput);
     }  
 
     private void Update() {
