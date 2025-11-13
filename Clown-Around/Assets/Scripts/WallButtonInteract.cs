@@ -30,7 +30,7 @@ public class WallButtonInteract : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("player2"))
         {
             dentro = true;
         }
@@ -38,7 +38,7 @@ public class WallButtonInteract : MonoBehaviour
     
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("player2"))
         {
             dentro = false;
         } 

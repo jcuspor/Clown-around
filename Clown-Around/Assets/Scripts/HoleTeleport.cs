@@ -5,7 +5,7 @@ public class HoleTeleport : MonoBehaviour
     public GameObject teleport;
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("player2"))
         {
             Debug.Log("Funca");
             CharacterController cc = other.GetComponent<CharacterController>();
