@@ -4,13 +4,16 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Movimiento : MonoBehaviour
 {
-    [SerializeField] private Transform camera1; 
+    [SerializeField] private Transform cameraTransform; 
     public float speed = 5f;
     private CharacterController controller;
     private Vector2 moveInput;
     public float rotSpeed = 15.0f; 
-    public float gravity = -9.81f; // Valor habitual de gravedad
-    private float verticalVelocity = 0f; // Nueva variable para la velocidad vertical
+    public float gravity = -9.81f;
+    private float verticalVelocity = 0f;
+    private Vector3 velocity;
+
+    private ControllerColliderHit _contact;
 
     private void Start() {
         controller = GetComponent<CharacterController>();
@@ -18,33 +21,32 @@ public class Movimiento : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context) {
         moveInput = context.ReadValue<Vector2>();
-        //Debug.Log("Move: " + moveInput);
-    }  
+        Debug.Log("Move: " + moveInput);
+    }
 
     private void Update() {
-        Vector3 horizVel = new Vector3(moveInput.x, 0, moveInput.y) * speed;
-
-        // --- GRAVEDAD ---
-        if (controller.isGrounded && verticalVelocity < 0f) {
-            verticalVelocity = -2f; // Es importante que no sea 0 para pegar el personaje al suelo
-        } else {
-            verticalVelocity += gravity * Time.deltaTime;
-        }
-        // --- FIN GRAVEDAD ---
-        
-        Vector3 move = horizVel;
-        move.y = verticalVelocity; // Suma la velocidad vertical al movimiento total
-        controller.Move(move * Time.deltaTime);
-
-        if (!Mathf.Approximately(horizVel.magnitude, 0.0f)) {
-            Quaternion rot = Quaternion.Euler(0, camera1.eulerAngles.y, 0);
+        var horizVel = new Vector3(moveInput.x, 0.0f, moveInput.y) * speed;
+        if (!Mathf.Approximately(horizVel.magnitude, 0.0f))
+        {
+            Quaternion rot = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
             horizVel = rot * horizVel;
             Quaternion direction = Quaternion.LookRotation(horizVel);
             transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime);
         }
+
+        if (controller.isGrounded && velocity.y < 0)
+        {
+            velocity.y = -1f;
+        }
+        else
+        {
+            velocity.y += gravity * Time.deltaTime;
+            if (velocity.y < -20f) velocity.y = -20f;
+        }
+
+        controller.Move((horizVel + velocity) * Time.deltaTime);
     }
 
-    private ControllerColliderHit _contact;
     (Vector3 from, Vector3 to) StepCheck() {
         return (transform.position + Vector3.up * controller.radius / 2,
         transform.position + Vector3.down * controller.radius / 2);
@@ -54,5 +56,5 @@ public class Movimiento : MonoBehaviour
     {
         _contact = hit;
     }
-}
+} // <- Esta llave cierra la clase correctamente
 
