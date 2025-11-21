@@ -1278,7 +1278,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 796743645}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1584602463}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: CargarNivel2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &796743645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2492,6 +2504,13 @@ MonoBehaviour:
   panelMenuPrincipal: {fileID: 1116314155}
   panelSelectorNiveles: {fileID: 12313224}
   panelOpciones: {fileID: 1592731444}
+  botonesNiveles:
+  - {fileID: 1572880643}
+  - {fileID: 796743644}
+  - {fileID: 1808771737}
+  - {fileID: 1311428208}
+  - {fileID: 573411479}
+  - {fileID: 427503979}
 --- !u!4 &1584602464
 Transform:
   m_ObjectHideFlags: 0

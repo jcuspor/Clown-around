@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinNivel : MonoBehaviour
 {
@@ -24,11 +25,24 @@ public class FinNivel : MonoBehaviour
             player2AtGoal = false;
     }
 
+    
     void CheckIfLevelComplete()
     {
         if (player1AtGoal && player2AtGoal)
         {
-            Debug.Log("¡Nivel completado!");
+            PlayerPrefs.SetInt("VolverSelectorNiveles", 1); // 1 = ir al selector de niveles
+            PlayerPrefs.Save();
+            Debug.Log("Â¡Nivel completado!");
+            int nextLevel = 2;
+            PlayerPrefs.SetInt("NivelMaxDesbloqueado", nextLevel);
+            PlayerPrefs.Save();
+            StartCoroutine(EsperarYCambiarMenu());
         }
+    }
+
+    System.Collections.IEnumerator EsperarYCambiarMenu()
+    {
+        yield return new WaitForSeconds(1f); // Espera 1 segundo
+        SceneManager.LoadScene("Scenes/UI");
     }
 }
