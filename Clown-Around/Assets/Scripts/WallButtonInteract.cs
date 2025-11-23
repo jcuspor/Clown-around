@@ -28,19 +28,11 @@ public class WallButtonInteract : MonoBehaviour
             }
         }
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("player2"))
+        if (other.gameObject.CompareTag("Player"))
         {
             dentro = true;
-        }
-    }
-    
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("player2"))
-        {
-            dentro = false;
-        } 
+        }else{dentro = false;}
     }
 }
