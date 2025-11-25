@@ -12,6 +12,8 @@ public class Movimiento : MonoBehaviour
     public float gravity = -9.81f;
     private float verticalVelocity = 0f;
     private Vector3 velocity;
+    //public GameObject plataformaObject; // Plataforma a detectar
+
 
     private ControllerColliderHit _contact;
 
@@ -52,9 +54,36 @@ public class Movimiento : MonoBehaviour
         transform.position + Vector3.down * controller.radius / 2);
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+   
+
+    private bool estaSobrePlataforma = false;
+    private int contactosConPlataforma = 0;
+/*
+   private void OnControllerColliderHit(ControllerColliderHit hit)
+{
+    if (hit.collider.CompareTag("plataforma"))
     {
-        _contact = hit;
+        estaSobrePlataforma = true;
+        plataformaObject = hit.collider.gameObject;
     }
-} // <- Esta llave cierra la clase correctamente
+}
+
+
+    private void LateUpdate()
+{
+    if (!estaSobrePlataforma)
+    {
+        plataformaObject = null;  // Quitamos la plataforma si no está en contacto
+    }
+    estaSobrePlataforma = false;
+}
+*/
+
+    public bool EstaSobrePlataforma()
+    {
+        return estaSobrePlataforma;
+    }
+
+
+} 
 

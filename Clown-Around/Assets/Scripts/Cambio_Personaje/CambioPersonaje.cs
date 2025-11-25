@@ -45,6 +45,9 @@ public class CambioPersonaje : MonoBehaviour
             activo = 2;
             personaje2.tag = "Player";
             personaje1.tag = "player2";
+
+            // Ajustar elevación para evitar hundimiento
+            AjustarPosicionPersonaje(personaje2);
         }
         else
         {
@@ -55,7 +58,34 @@ public class CambioPersonaje : MonoBehaviour
             activo = 1;
             personaje1.tag = "Player";
             personaje2.tag = "player2";
+
+            // Ajustar elevación para evitar hundimiento
+            AjustarPosicionPersonaje(personaje1);
         }
     }
+
+    void AjustarPosicionPersonaje(GameObject personaje)
+    {
+        CharacterController cc = personaje.GetComponent<CharacterController>();
+        if (cc != null)
+        {
+            Vector3 pos = personaje.transform.position;
+
+            // Raycast corto hacia abajo para chequear el suelo
+            RaycastHit hit;
+            float rayDistance = 0.5f;
+            if (Physics.Raycast(pos + Vector3.up * 0.1f, Vector3.down, out hit, rayDistance))
+            {
+                pos.y = hit.point.y + cc.height / 2; // Posicionar justo encima del suelo
+            }
+            else
+            {
+                pos.y += cc.skinWidth; // En caso de fallo, subir un poco para evitar penetración
+            }
+            personaje.transform.position = pos;
+        }
+    }
+
+
 }
 
