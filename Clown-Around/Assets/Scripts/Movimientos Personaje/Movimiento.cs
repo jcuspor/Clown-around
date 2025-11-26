@@ -12,6 +12,7 @@ public class Movimiento : MonoBehaviour
     public float gravity = -9.81f;
     private float verticalVelocity = 0f;
     private Vector3 velocity;
+    private Animator animator;
     //public GameObject plataformaObject; // Plataforma a detectar
 
 
@@ -19,15 +20,17 @@ public class Movimiento : MonoBehaviour
 
     private void Start() {
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     public void OnMove(InputAction.CallbackContext context) {
         moveInput = context.ReadValue<Vector2>();
-        Debug.Log("Move: " + moveInput);
+        //Debug.Log("Move: " + moveInput);
     }
 
     private void Update() {
         var horizVel = new Vector3(moveInput.x, 0.0f, moveInput.y) * speed;
+        animator.SetFloat("Speed", horizVel.sqrMagnitude);
         if (!Mathf.Approximately(horizVel.magnitude, 0.0f))
         {
             Quaternion rot = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
