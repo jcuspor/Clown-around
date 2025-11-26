@@ -44,6 +44,7 @@ public class CambioPersonaje : MonoBehaviour
             freeLookCam.LookAt = camTarget2;
             activo = 2;
             personaje2.tag = "Player";
+            personaje1.GetComponent<Animator>().SetFloat("Speed",0);
             personaje1.tag = "player2";
 
             // Ajustar elevación para evitar hundimiento
@@ -58,6 +59,7 @@ public class CambioPersonaje : MonoBehaviour
             activo = 1;
             personaje1.tag = "Player";
             personaje2.tag = "player2";
+            personaje2.GetComponent<Animator>().SetFloat("Speed",0);
 
             // Ajustar elevación para evitar hundimiento
             AjustarPosicionPersonaje(personaje1);
