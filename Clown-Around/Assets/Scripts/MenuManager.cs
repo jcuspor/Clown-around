@@ -11,6 +11,8 @@ public class MenuManager : MonoBehaviour
     public Button[] botonesNiveles; // Array con los botones de niveles en orden (asigna desde el inspector)
 
     void Start() {
+        
+
         // Al iniciar, sólo muestra el menú principal
         panelMenuPrincipal.SetActive(true);
         panelSelectorNiveles.SetActive(false);
@@ -36,6 +38,8 @@ public class MenuManager : MonoBehaviour
     }
 
     public void JugarClicked() {
+        PlayerPrefs.DeleteAll();     // Borra todas las claves guardadas
+        PlayerPrefs.Save(); 
         panelMenuPrincipal.SetActive(false);
         panelSelectorNiveles.SetActive(true);
     }
@@ -46,6 +50,7 @@ public class MenuManager : MonoBehaviour
     }
 
     public void SalirClicked() {
+        
         Application.Quit(); // Solo funciona fuera del editor
     }
 

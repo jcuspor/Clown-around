@@ -30,15 +30,27 @@ public class FinNivel : MonoBehaviour
     {
         if (player1AtGoal && player2AtGoal)
         {
-            PlayerPrefs.SetInt("VolverSelectorNiveles", 1); // 1 = ir al selector de niveles
+            PlayerPrefs.SetInt("VolverSelectorNiveles", 1);
             PlayerPrefs.Save();
             Debug.Log("¡Nivel completado!");
-            int nextLevel = 2;
-            PlayerPrefs.SetInt("NivelMaxDesbloqueado", nextLevel);
-            PlayerPrefs.Save();
+
+            // Ejemplo: si usas el índice de la escena actual como identificador de nivel
+            int nivelActual = SceneManager.GetActiveScene().buildIndex;
+
+            int nivelMaxDesbloqueado = PlayerPrefs.GetInt("NivelMaxDesbloqueado", 1);
+
+            // Solo actualiza el progreso si este nivel es el más alto logrado
+            if (nivelActual >= nivelMaxDesbloqueado)
+            {
+                PlayerPrefs.SetInt("NivelMaxDesbloqueado", nivelActual + 1); // Desbloquea el siguiente nivel
+                PlayerPrefs.Save();
+            }
+
             StartCoroutine(EsperarYCambiarMenu());
         }
     }
+
+
 
     System.Collections.IEnumerator EsperarYCambiarMenu()
     {
