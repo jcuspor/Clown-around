@@ -5,12 +5,14 @@ public class WallButtonInteract : MonoBehaviour
 {
     public GameObject wall; // Debes asignar este objeto en el Inspector
     private Animator anim;
+    private Animator animator;
     private GameObject jugadorEnZona;
     private bool dentro;
 
     void Start()
     {
         anim = wall.GetComponent<Animator>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -20,6 +22,7 @@ public class WallButtonInteract : MonoBehaviour
             if (jugadorEnZona.CompareTag("Player"))
             {
                 anim.SetBool("IsUp", !anim.GetBool("IsUp"));
+                animator.SetTrigger("Press");
             }
         }
     }

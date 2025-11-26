@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 6283605954260705057}
   - component: {fileID: 773879237110877771}
   - component: {fileID: 3036544567169199936}
+  - component: {fileID: 5642420788337734402}
   m_Layer: 0
   m_Name: WallButton
   m_TagString: Untagged
@@ -279,6 +280,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 1711613694578348811}
+--- !u!95 &5642420788337734402
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071209160935557075}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: def38082e9d16bb4488c985362c36937, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4190768622274763792
 GameObject:
   m_ObjectHideFlags: 0
