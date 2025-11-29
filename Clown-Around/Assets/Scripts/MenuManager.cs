@@ -1,28 +1,33 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using System.Collections;
+using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
     public GameObject panelMenuPrincipal;
     public GameObject panelSelectorNiveles;
     public GameObject panelOpciones;
+    public GameObject splash;
     public Button[] botonesNiveles; // Array con los botones de niveles en orden (asigna desde el inspector)
-
+    public float waitTime = 10.0f;
+    private bool splashSkipped = false;
     void Start() {
         
 
         // Al iniciar, sólo muestra el menú principal
-        panelMenuPrincipal.SetActive(true);
+        panelMenuPrincipal.SetActive(false);
         panelSelectorNiveles.SetActive(false);
         panelOpciones.SetActive(false);
+        splash.SetActive(true);
         
         
         if (PlayerPrefs.HasKey("VolverSelectorNiveles") && PlayerPrefs.GetInt("VolverSelectorNiveles") == 1) {
             panelMenuPrincipal.SetActive(false);
             panelSelectorNiveles.SetActive(true);
             panelOpciones.SetActive(false);
+            splash.SetActive(false);
             PlayerPrefs.DeleteKey("VolverSelectorNiveles"); // Limpia para la próxima vez
         
         }
@@ -34,6 +39,19 @@ public class MenuManager : MonoBehaviour
                 botonesNiveles[i].interactable = true; // Desbloqueado
             else
                 botonesNiveles[i].interactable = false; // Bloqueado
+        }
+
+        StartCoroutine(WaitAndLoadNextLevel());
+    }
+
+    private void Update()
+    {
+        if (!splashSkipped && splash.activeInHierarchy && 
+        (Keyboard.current.anyKey.wasPressedThisFrame || 
+         Mouse.current.leftButton.wasPressedThisFrame))  // ← CAMBIA ESTO
+        {
+            LoadNextLevel();
+            splashSkipped = true;
         }
     }
 
@@ -60,5 +78,18 @@ public class MenuManager : MonoBehaviour
 
     public void CargarNivel2() {
         SceneManager.LoadScene("Scenes/Nivel2");
+    }
+
+     IEnumerator WaitAndLoadNextLevel()
+    {
+        yield return new WaitForSeconds(waitTime);
+        LoadNextLevel();
+    }
+
+    private void LoadNextLevel()
+    {
+        splash.SetActive(false);
+        panelMenuPrincipal.SetActive(true);
+        splashSkipped = true;
     }
 }
