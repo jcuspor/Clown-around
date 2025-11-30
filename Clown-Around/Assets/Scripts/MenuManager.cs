@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject panelSelectorNiveles;
     public GameObject panelOpciones;
     public GameObject splash;
+    public GameObject creditos;
     public Button[] botonesNiveles; // Array con los botones de niveles en orden (asigna desde el inspector)
     public float waitTime = 10.0f;
     private bool splashSkipped = false;
@@ -21,6 +22,7 @@ public class MenuManager : MonoBehaviour
         panelSelectorNiveles.SetActive(false);
         panelOpciones.SetActive(false);
         splash.SetActive(true);
+        creditos.SetActive(false);
         
         
         if (PlayerPrefs.HasKey("VolverSelectorNiveles") && PlayerPrefs.GetInt("VolverSelectorNiveles") == 1) {
@@ -41,7 +43,10 @@ public class MenuManager : MonoBehaviour
                 botonesNiveles[i].interactable = false; // Bloqueado
         }
 
-        StartCoroutine(WaitAndLoadNextLevel());
+        if (splash.activeInHierarchy)
+        {
+            StartCoroutine(WaitAndLoadNextLevel());
+        }
     }
 
     private void Update()
@@ -69,7 +74,8 @@ public class MenuManager : MonoBehaviour
 
     public void SalirClicked() {
         
-        Application.Quit(); // Solo funciona fuera del editor
+        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void CargarNivel1() {
@@ -83,6 +89,8 @@ public class MenuManager : MonoBehaviour
      IEnumerator WaitAndLoadNextLevel()
     {
         yield return new WaitForSeconds(waitTime);
+        if(splash.activeInHierarchy)
+        
         LoadNextLevel();
     }
 
