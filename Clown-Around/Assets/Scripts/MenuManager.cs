@@ -53,27 +53,18 @@ public class MenuManager : MonoBehaviour
     {
         if (!splashSkipped && splash.activeInHierarchy && 
         (Keyboard.current.anyKey.wasPressedThisFrame || 
-         Mouse.current.leftButton.wasPressedThisFrame))  // ← CAMBIA ESTO
+         Mouse.current.leftButton.wasPressedThisFrame))  
         {
             LoadNextLevel();
             splashSkipped = true;
         }
     }
 
-    public void JugarClicked() {
-        PlayerPrefs.DeleteAll();     // Borra todas las claves guardadas
-        PlayerPrefs.Save(); 
-        panelMenuPrincipal.SetActive(false);
-        panelSelectorNiveles.SetActive(true);
-    }
-
-    public void OpcionesClicked() {
-        panelMenuPrincipal.SetActive(false);
-        panelOpciones.SetActive(true);
-    }
 
     public void SalirClicked() {
-        
+
+        PlayerPrefs.DeleteAll();     // Borra todas las claves guardadas
+        PlayerPrefs.Save(); 
         Application.Quit();
         UnityEditor.EditorApplication.isPlaying = false;
     }
@@ -99,5 +90,10 @@ public class MenuManager : MonoBehaviour
         splash.SetActive(false);
         panelMenuPrincipal.SetActive(true);
         splashSkipped = true;
+    }
+
+    public void atras(){
+        panelMenuPrincipal.SetActive(true);
+        panelSelectorNiveles.SetActive(false);
     }
 }
