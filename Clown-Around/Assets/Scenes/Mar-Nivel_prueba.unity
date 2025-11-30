@@ -335,6 +335,18 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3013469716679176656, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
+      propertyPath: hideHelpTextAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013469716679176656, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
+      propertyPath: hideHelpTextAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: dcf030a3-b2d5-45c5-bcd6-9588fe404128
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013469716679176656, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
+      propertyPath: hideHelpTextAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/r
+      objectReference: {fileID: 0}
     - target: {fileID: 3820736004243753390, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
