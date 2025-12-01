@@ -6,6 +6,9 @@ public class FinNivel : MonoBehaviour
 {
     private bool player1AtGoal = false;
     private bool player2AtGoal = false;
+    [SerializeField] private GameObject Meta1;
+    [SerializeField] private GameObject Meta2;
+    public GameObject burstParticle;
 
     public void PlayerReachedGoal(int playerNumber)
     {
@@ -33,6 +36,10 @@ public class FinNivel : MonoBehaviour
             PlayerPrefs.SetInt("VolverSelectorNiveles", 1);
             PlayerPrefs.Save();
             Debug.Log("¡Nivel completado!");
+            Instantiate(burstParticle, Meta1.transform.position, Quaternion.identity);
+            Instantiate(burstParticle, Meta2.transform.position, Quaternion.identity);
+            Destroy(Meta1);
+            Destroy(Meta2);
 
             // Ejemplo: si usas el índice de la escena actual como identificador de nivel
             int nivelActual = SceneManager.GetActiveScene().buildIndex;
