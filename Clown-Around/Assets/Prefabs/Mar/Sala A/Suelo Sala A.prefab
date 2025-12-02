@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1202561579955694783, guid: ddcaa034ef88d484bbcb691830ce984c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5d0be9d5642af2b4ca8c21fe727e00e8, type: 2}
+      objectReference: {fileID: 2100000, guid: 1ba565a74ba832942910e9f37fb244a1, type: 2}
     - target: {fileID: 4219895123762481985, guid: ddcaa034ef88d484bbcb691830ce984c, type: 3}
       propertyPath: m_Name
       value: Suelo Sala A

@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 7956868672761323101, guid: 6e3cfb7d6b92d1e4db5becc9f85035ef, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ac53ccfa380b68a409f1392a8df73080, type: 2}
+      objectReference: {fileID: 2100000, guid: d10b62c73d1698541803521e12b8dfdf, type: 2}
     - target: {fileID: 8201099215596004950, guid: 6e3cfb7d6b92d1e4db5becc9f85035ef, type: 3}
       propertyPath: m_Name
       value: Pared Sala B
