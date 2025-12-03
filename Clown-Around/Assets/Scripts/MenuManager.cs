@@ -3,6 +3,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
+using UnityEngine.EventSystems;
+
+
 
 public class MenuManager : MonoBehaviour
 {
@@ -14,9 +18,12 @@ public class MenuManager : MonoBehaviour
     public Button[] botonesNiveles; // Array con los botones de niveles en orden (asigna desde el inspector)
     public float waitTime = 10.0f;
     private bool splashSkipped = false;
+    public Button defaultButton;
+    
+
     void Start() {
         
-
+        EventSystem.current.SetSelectedGameObject(defaultButton.gameObject);
         // Al iniciar, sólo muestra el menú principal
         panelMenuPrincipal.SetActive(false);
         panelSelectorNiveles.SetActive(false);
@@ -35,12 +42,17 @@ public class MenuManager : MonoBehaviour
         }
 
         int nivelDesbloqueado = PlayerPrefs.GetInt("NivelMaxDesbloqueado", 1); // Por defecto solo el 1 desbloqueado
+
+
         for (int i = 0; i < botonesNiveles.Length; i++)
         {
-            if (i < nivelDesbloqueado)
+            if (i < nivelDesbloqueado){
                 botonesNiveles[i].interactable = true; // Desbloqueado
-            else
+            }
+            else{
                 botonesNiveles[i].interactable = false; // Bloqueado
+            }
+
         }
 
         if (splash.activeInHierarchy)
@@ -48,6 +60,7 @@ public class MenuManager : MonoBehaviour
             StartCoroutine(WaitAndLoadNextLevel());
         }
     }
+
 
     private void Update()
     {
