@@ -14,12 +14,11 @@ public class CambioPersonaje : MonoBehaviour
     public Transform camTarget2;
     public CinemachineCamera freeLookCam;
 
-    public InputAction switchCharacterAction;
+    public InputAction switchCharacterAction; // R
+    public EnlacePersonaje enlace;
 
     private int activo = 1;
     public int Activo => activo;
-
-    public EnlacePersonaje enlace;
 
     void OnEnable()
     {
@@ -47,8 +46,13 @@ public class CambioPersonaje : MonoBehaviour
 
     private void CambiaPersonaje()
     {
+        // 🔥 SIEMPRE DESENLAZAR AL CAMBIAR
+        if (enlace != null)
+            enlace.ForzarDesenlaceTotal();
+
         if (activo == 1)
         {
+            // Cambiar a personaje 2
             movimiento1.enabled = false;
             movimiento2.enabled = true;
 
@@ -56,16 +60,17 @@ public class CambioPersonaje : MonoBehaviour
             freeLookCam.LookAt = camTarget2;
 
             activo = 2;
+
             personaje2.tag = "Player";
-            personaje1.GetComponent<Animator>().SetFloat("Speed", 0f);
             personaje1.tag = "player2";
 
-            if (enlace != null) enlace.NotificarCambioActivo();
+            personaje1.GetComponent<Animator>().SetFloat("Speed", 0f);
 
             AjustarPosicionPersonaje(personaje2);
         }
         else
         {
+            // Cambiar a personaje 1
             movimiento2.enabled = false;
             movimiento1.enabled = true;
 
@@ -73,11 +78,11 @@ public class CambioPersonaje : MonoBehaviour
             freeLookCam.LookAt = camTarget1;
 
             activo = 1;
+
             personaje1.tag = "Player";
             personaje2.tag = "player2";
-            personaje2.GetComponent<Animator>().SetFloat("Speed", 0f);
 
-            if (enlace != null) enlace.NotificarCambioActivo();
+            personaje2.GetComponent<Animator>().SetFloat("Speed", 0f);
 
             AjustarPosicionPersonaje(personaje1);
         }
@@ -92,6 +97,7 @@ public class CambioPersonaje : MonoBehaviour
 
             RaycastHit hit;
             float rayDistance = 0.5f;
+
             if (Physics.Raycast(pos + Vector3.up * 0.1f, Vector3.down, out hit, rayDistance))
             {
                 pos.y = hit.point.y + cc.height / 2;

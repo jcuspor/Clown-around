@@ -22,6 +22,11 @@ public class Movimiento : MonoBehaviour
     private bool usandoInputForzado = false;
     private Vector2 inputForzado;
 
+    public bool IgnorarGravedad { get; set; } = false;
+
+    public float GravityAmount { get; set; } = -9.81f;
+
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -51,7 +56,7 @@ public class Movimiento : MonoBehaviour
         bool chocandoPared = (controller.collisionFlags & CollisionFlags.Sides) != 0;
         return intentandoMoverse && chocandoPared;
     }
-
+    /*
     private void Update()
     {
         Vector2 input = usandoInputForzado ? inputForzado : moveInput;
@@ -75,6 +80,43 @@ public class Movimiento : MonoBehaviour
         {
             velocity.y += gravity * Time.deltaTime;
             if (velocity.y < -20f) velocity.y = -20f;
+        }
+
+        controller.Move((horizVel + velocity) * Time.deltaTime);
+    }
+    */
+    private void Update()
+    {
+        Vector2 input = usandoInputForzado ? inputForzado : moveInput;
+
+        Vector3 horizVel = new Vector3(input.x, 0.0f, input.y) * speed;
+        animator.SetFloat("Speed", horizVel.sqrMagnitude);
+
+        if (!Mathf.Approximately(horizVel.magnitude, 0.0f))
+        {
+            Quaternion rot = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+            horizVel = rot * horizVel;
+            Quaternion direction = Quaternion.LookRotation(horizVel);
+            transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime);
+        }
+
+        // APLICA GRAVEDAD SOLO SI NO ESTÁ IGNORÁNDOSE
+        if (!IgnorarGravedad)
+        {
+            if (controller.isGrounded && velocity.y < 0)
+            {
+                velocity.y = -1f;
+            }
+            else
+            {
+                velocity.y += GravityAmount * Time.deltaTime;
+                if (velocity.y < -20f) velocity.y = -20f;
+            }
+        }
+        else
+        {
+            // Sin gravedad: mantiene altura Y constante
+            velocity.y = 0f;
         }
 
         controller.Move((horizVel + velocity) * Time.deltaTime);
