@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class FinNivel : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class FinNivel : MonoBehaviour
     [SerializeField] private GameObject Meta1;
     [SerializeField] private GameObject Meta2;
     public GameObject burstParticle;
+    public GameObject panel;
 
     public void PlayerReachedGoal(int playerNumber)
     {
@@ -62,6 +64,7 @@ public class FinNivel : MonoBehaviour
     System.Collections.IEnumerator EsperarYCambiarMenu()
     {
         yield return new WaitForSeconds(1f); // Espera 1 segundo
+        ratonMenu();
         SceneManager.LoadScene("Scenes/UI");
     }
 
@@ -75,5 +78,13 @@ public class FinNivel : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;// deja el ratón en el centro de la ventana
         Cursor.visible = false; // pulsa Esc para desbloquearlo
+    }
+
+
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space)){
+            panel.SetActive(true);
+        }
     }
 }
