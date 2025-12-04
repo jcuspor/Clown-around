@@ -64,4 +64,16 @@ public class FinNivel : MonoBehaviour
         yield return new WaitForSeconds(1f); // Espera 1 segundo
         SceneManager.LoadScene("Scenes/UI");
     }
+
+    public void ratonMenu()
+    {
+        Cursor.lockState = CursorLockMode.None;// deja el ratón en el centro de la ventana
+        Cursor.visible = true; // pulsa Esc para desbloquearlo
+    }
+
+    public void ratonMenuVolver()
+    {
+        Cursor.lockState = CursorLockMode.Locked;// deja el ratón en el centro de la ventana
+        Cursor.visible = false; // pulsa Esc para desbloquearlo
+    }
 }

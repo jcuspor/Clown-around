@@ -84,10 +84,12 @@ public class MenuManager : MonoBehaviour
 
     public void CargarNivel1() {
         SceneManager.LoadScene("Scenes/Mar-Nivel_prueba");
+        raton();
     }
 
     public void CargarNivel2() {
         SceneManager.LoadScene("Scenes/Nivel2");
+        raton();
     }
 
      IEnumerator WaitAndLoadNextLevel()
@@ -109,4 +111,11 @@ public class MenuManager : MonoBehaviour
         panelMenuPrincipal.SetActive(true);
         panelSelectorNiveles.SetActive(false);
     }
+
+    public void raton()
+    {
+        Cursor.lockState = CursorLockMode.Locked; // deja el ratón en el centro de la ventana
+        Cursor.visible = false; // pulsa Esc para desbloquearlo
+    }
+    
 }
