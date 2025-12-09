@@ -55,7 +55,23 @@ public class FinNivel : MonoBehaviour
                 PlayerPrefs.Save();
             }
 
-            StartCoroutine(EsperarYCambiarMenu());
+            if (nivelActual == 2 ){
+                
+                ratonMenu();
+                StartCoroutine(EsperarYCambiarMenu());
+            }else if (nivelActual == 0){
+                
+                ratonMenuVolver();
+                SceneManager.LoadScene("Scenes/Mar-Nivel_prueba");
+            }else if (nivelActual == 1){
+                
+                ratonMenuVolver();
+                SceneManager.LoadScene("Scenes/Nivel2");
+            }else{
+                
+                ratonMenu();
+                StartCoroutine(EsperarYCambiarMenu());
+            }
         }
     }
 

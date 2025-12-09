@@ -92,6 +92,11 @@ public class MenuManager : MonoBehaviour
         raton();
     }
 
+    public void CargarNivel4() {
+        SceneManager.LoadScene("Scenes/Nivel4");
+        raton();
+    }
+
      IEnumerator WaitAndLoadNextLevel()
     {
         yield return new WaitForSeconds(waitTime);
