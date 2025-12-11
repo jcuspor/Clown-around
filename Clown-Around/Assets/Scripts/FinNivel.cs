@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using Unity.Mathematics;
 
 public class FinNivel : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class FinNivel : MonoBehaviour
     [SerializeField] private GameObject Meta2;
     public GameObject burstParticle;
     public GameObject panel;
+    private bool menu = false;
 
     public void PlayerReachedGoal(int playerNumber)
     {
@@ -99,8 +101,10 @@ public class FinNivel : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Keyboard.current.escapeKey.wasPressedThisFrame && !menu){
             panel.SetActive(true);
+            ratonMenu();
+            menu = true;
         }
     }
 }

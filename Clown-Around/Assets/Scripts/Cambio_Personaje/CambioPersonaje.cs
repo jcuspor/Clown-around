@@ -53,6 +53,7 @@ public class CambioPersonaje : MonoBehaviour
         if (activo == 1)
         {
             // Cambiar a personaje 2
+            movimiento1.acabarCaminando();
             movimiento1.enabled = false;
             movimiento2.enabled = true;
 
@@ -71,6 +72,7 @@ public class CambioPersonaje : MonoBehaviour
         else
         {
             // Cambiar a personaje 1
+            movimiento2.acabarCaminando();
             movimiento2.enabled = false;
             movimiento1.enabled = true;
 
