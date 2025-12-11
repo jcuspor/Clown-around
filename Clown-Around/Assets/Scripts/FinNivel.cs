@@ -106,5 +106,17 @@ public class FinNivel : MonoBehaviour
             ratonMenu();
             menu = true;
         }
+        else if(Keyboard.current.escapeKey.wasPressedThisFrame && menu){
+            panel.SetActive(false);
+            ratonMenuVolver();
+            menu = false;
+        }
+    }
+
+    public void salirMenu()
+    {
+        panel.SetActive(false);
+        ratonMenuVolver();
+        menu = false;
     }
 }
