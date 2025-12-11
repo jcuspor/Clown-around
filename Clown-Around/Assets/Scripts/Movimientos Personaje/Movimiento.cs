@@ -26,6 +26,8 @@ public class Movimiento : MonoBehaviour
 
     public float GravityAmount { get; set; } = -9.81f;
 
+    [SerializeField] private AudioSource sonidoCaminar;
+
 
     private void Start()
     {
@@ -91,6 +93,8 @@ public class Movimiento : MonoBehaviour
 
         Vector3 horizVel = new Vector3(input.x, 0.0f, input.y) * speed;
         animator.SetFloat("Speed", horizVel.sqrMagnitude);
+        if(horizVel.sqrMagnitude > 0){sonidoCaminar.enabled = true;}
+        else{sonidoCaminar.enabled = false;}
 
         if (!Mathf.Approximately(horizVel.magnitude, 0.0f))
         {
@@ -125,5 +129,10 @@ public class Movimiento : MonoBehaviour
     public bool EstaSobrePlataforma()
     {
         return false;
+    }
+
+    public void acabarCaminando()
+    {
+        if(sonidoCaminar.enabled == true){sonidoCaminar.enabled = false;}
     }
 }
