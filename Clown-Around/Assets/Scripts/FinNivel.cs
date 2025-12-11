@@ -57,23 +57,28 @@ public class FinNivel : MonoBehaviour
                 PlayerPrefs.Save();
             }
 
-            if (nivelActual == 2 ){
-                
-                ratonMenu();
+            if (nivelActual == 0){
                 StartCoroutine(EsperarYCambiarMenu());
-            }else if (nivelActual == 0){
-                
                 ratonMenuVolver();
-                SceneManager.LoadScene("Scenes/Mar-Nivel_prueba");
-            }else if (nivelActual == 1){
-                
-                ratonMenuVolver();
-                SceneManager.LoadScene("Scenes/Nivel2");
-            }else{
-                
-                ratonMenu();
-                StartCoroutine(EsperarYCambiarMenu());
+                SceneManager.LoadScene("Scenes/Mar-Nivel_prueba"); // Nivel 1
             }
+            else if (nivelActual == 1){
+                StartCoroutine(EsperarYCambiarMenu());
+                ratonMenuVolver();
+                SceneManager.LoadScene("Scenes/Nivel2");           // Nivel 2
+            }
+            else if (nivelActual == 2){
+                SceneManager.LoadScene("Scenes/Nivel3");           // Nivel 3
+            }
+            else if (nivelActual == 3){
+                SceneManager.LoadScene("Scenes/Nivel4");           // Nivel 4 🎯
+            }
+            else{
+                StartCoroutine(EsperarYCambiarMenu());
+                ratonMenu();
+                SceneManager.LoadScene("Scenes/UI");               // Menú
+            }
+
         }
     }
 
@@ -82,8 +87,7 @@ public class FinNivel : MonoBehaviour
     System.Collections.IEnumerator EsperarYCambiarMenu()
     {
         yield return new WaitForSeconds(1f); // Espera 1 segundo
-        ratonMenu();
-        SceneManager.LoadScene("Scenes/UI");
+        
     }
 
     public void ratonMenu()
