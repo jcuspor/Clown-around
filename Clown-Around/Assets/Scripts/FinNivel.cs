@@ -123,4 +123,10 @@ public class FinNivel : MonoBehaviour
         ratonMenuVolver();
         menu = false;
     }
+
+    public void seleccionNiveles()
+    {
+        SceneManager.LoadScene("Scenes/UI");
+        ratonMenu();
+    }
 }
