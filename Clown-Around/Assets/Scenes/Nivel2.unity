@@ -783,6 +783,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4074309735885032543, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
+      propertyPath: particulaCambio
+      value: 
+      objectReference: {fileID: 7235980221269191818, guid: 33415156b4825c14493711248e98714c, type: 3}
     - target: {fileID: 5432627256387026951, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.8689294

@@ -2046,6 +2046,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -3.345
       objectReference: {fileID: 0}
+    - target: {fileID: 4074309735885032543, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
+      propertyPath: particulaCambio
+      value: 
+      objectReference: {fileID: 7235980221269191818, guid: 33415156b4825c14493711248e98714c, type: 3}
     - target: {fileID: 5432627256387026951, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.8689294
@@ -4014,6 +4018,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   enlace: {fileID: 0}
+  particulaCambio: {fileID: 0}
 --- !u!4 &1309628130
 Transform:
   m_ObjectHideFlags: 0
