@@ -16,6 +16,7 @@ public class CambioPersonaje : MonoBehaviour
 
     public InputAction switchCharacterAction; // R
     public EnlacePersonaje enlace;
+    public GameObject particulaCambio;
 
     private int activo = 1;
     public int Activo => activo;
@@ -46,6 +47,8 @@ public class CambioPersonaje : MonoBehaviour
 
     private void CambiaPersonaje()
     {
+        Vector3 direction;
+        GameObject p;
         // 🔥 SIEMPRE DESENLAZAR AL CAMBIAR
         if (enlace != null)
             enlace.ForzarDesenlaceTotal();
@@ -56,6 +59,9 @@ public class CambioPersonaje : MonoBehaviour
             movimiento1.acabarCaminando();
             movimiento1.enabled = false;
             movimiento2.enabled = true;
+
+            direction = personaje2.transform.position - personaje1.transform.position;
+            p = Instantiate(particulaCambio,personaje1.transform.position + Vector3.up * 2 ,Quaternion.LookRotation(direction));
 
             freeLookCam.Follow = camTarget2;
             freeLookCam.LookAt = camTarget2;
@@ -68,6 +74,7 @@ public class CambioPersonaje : MonoBehaviour
             personaje1.GetComponent<Animator>().SetFloat("Speed", 0f);
 
             AjustarPosicionPersonaje(personaje2);
+            Destroy(p,1f);
         }
         else
         {
@@ -75,6 +82,9 @@ public class CambioPersonaje : MonoBehaviour
             movimiento2.acabarCaminando();
             movimiento2.enabled = false;
             movimiento1.enabled = true;
+
+            direction = personaje1.transform.position - personaje2.transform.position;
+            p = Instantiate(particulaCambio,personaje2.transform.position + Vector3.up * 2 ,Quaternion.LookRotation(direction));
 
             freeLookCam.Follow = camTarget1;
             freeLookCam.LookAt = camTarget1;
@@ -87,6 +97,7 @@ public class CambioPersonaje : MonoBehaviour
             personaje2.GetComponent<Animator>().SetFloat("Speed", 0f);
 
             AjustarPosicionPersonaje(personaje1);
+            Destroy(p,1f);
         }
     }
 

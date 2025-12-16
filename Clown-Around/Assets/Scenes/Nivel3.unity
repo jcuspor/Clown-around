@@ -441,6 +441,18 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.58431375
       objectReference: {fileID: 0}
+    - target: {fileID: 6037831028288491427, guid: b0c5ea25a12797a448ff67507da3766b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1352721050}
+    - target: {fileID: 6037831028288491427, guid: b0c5ea25a12797a448ff67507da3766b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: seleccionNiveles
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037831028288491427, guid: b0c5ea25a12797a448ff67507da3766b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FinNivel, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6249417393278508204, guid: b0c5ea25a12797a448ff67507da3766b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
