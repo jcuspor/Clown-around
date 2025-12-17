@@ -7080,6 +7080,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 264877438}
     - target: {fileID: 8953681329271682580, guid: 95436f138a2022749b5ba4968af04899, type: 3}
+      propertyPath: particulas1
+      value: 
+      objectReference: {fileID: 7608364913734965782, guid: adfc5e57a3c454540bc9fde516251172, type: 3}
+    - target: {fileID: 8953681329271682580, guid: 95436f138a2022749b5ba4968af04899, type: 3}
+      propertyPath: particulas2
+      value: 
+      objectReference: {fileID: 7608364913734965782, guid: adfc5e57a3c454540bc9fde516251172, type: 3}
+    - target: {fileID: 8953681329271682580, guid: 95436f138a2022749b5ba4968af04899, type: 3}
       propertyPath: cambioPersonaje
       value: 
       objectReference: {fileID: 1223208897}
