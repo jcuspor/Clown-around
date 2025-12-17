@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 
 public class EnlacePersonaje : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class EnlacePersonaje : MonoBehaviour
     private Movimiento movPasivo;
 
     private Coroutine caidaCorutina;
+    [SerializeField] GameObject particulas1;
+    [SerializeField] GameObject particulas2;
+    private Vector3 direction1;
+    private Vector3 direction2;
 
     void OnEnable()
     {
@@ -32,13 +37,23 @@ public class EnlacePersonaje : MonoBehaviour
 
     void Start()
     {
-        enlaceAction.started += ctx => ToggleEnlace(); 
+        enlaceAction.started += ctx => ToggleEnlace();; 
     }
 
     void Update()
     {
         if (!enlazados) return;
         AplicarInputEspejo();
+            if(cambioPersonaje.Activo == 1)
+            {
+                direction1 = particulas2.transform.position - particulas1.transform.position;
+                particulas1.transform.rotation = Quaternion.LookRotation(direction1); 
+            }
+            else
+            {
+                particulas2.transform.rotation = Quaternion.LookRotation(direction2);
+                direction2 = particulas1.transform.position - particulas2.transform.position;  
+            }
     }
 
     // ======================================================
@@ -72,6 +87,8 @@ public class EnlacePersonaje : MonoBehaviour
                 if (caidaCorutina != null) StopCoroutine(caidaCorutina);
                 caidaCorutina = StartCoroutine(DesactivarTrasCaida(movPasivo, 1f));
             }
+            particulas1.SetActive(false);
+            particulas2.SetActive(false);
 
             movPasivo = null;
             movActivo = null;
@@ -91,6 +108,8 @@ public class EnlacePersonaje : MonoBehaviour
 
         if (movPasivo != null)
         {
+            particulas1.SetActive(false);
+            particulas2.SetActive(false);
             movPasivo.IgnorarGravedad = false;
             movPasivo.LimpiarInputForzado();
             movPasivo.enabled = false;
@@ -109,11 +128,13 @@ public class EnlacePersonaje : MonoBehaviour
         {
             movActivo = movimiento1;
             movPasivo = movimiento2;
+            particulas1.SetActive(true);
         }
         else
         {
             movActivo = movimiento2;
             movPasivo = movimiento1;
+            particulas2.SetActive(true);
         }
 
         if (movPasivo != null)
