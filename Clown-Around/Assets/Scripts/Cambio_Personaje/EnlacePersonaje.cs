@@ -7,18 +7,13 @@ public class EnlacePersonaje : MonoBehaviour
 {
     public Transform personaje1;
     public Transform personaje2;
-
     public Movimiento movimiento1;
     public Movimiento movimiento2;
-
     public CambioPersonaje cambioPersonaje;
-
     public InputAction enlaceAction; // Q
-
     private bool enlazados = false;
     private Movimiento movActivo;
     private Movimiento movPasivo;
-
     private Coroutine caidaCorutina;
     [SerializeField] GameObject particulas1;
     [SerializeField] GameObject particulas2;

@@ -15,12 +15,16 @@ public class IntroNivel : MonoBehaviour
 
     private int indexActual = 0;
     private float timer = 0f;
+    [SerializeField] GameObject payaso1;
+    private AudioSource pies;
 
     void Start()
     {
         // Bloqueamos el movimiento si lo hemos asignado
         if (scriptMovimientoJugador != null) scriptMovimientoJugador.enabled = false;
 
+        pies = payaso1.GetComponent<AudioSource>();
+        pies.enabled = false;
         if (vinyetas.Count > 0)
         {
             canvasHistoria.SetActive(true);
@@ -66,6 +70,7 @@ public class IntroNivel : MonoBehaviour
     {
         // Desactivamos toda la capa de la historia
         canvasHistoria.SetActive(false);
+        pies.enabled = true;
         
         // Reactivamos al jugador
         if (scriptMovimientoJugador != null) scriptMovimientoJugador.enabled = true;
