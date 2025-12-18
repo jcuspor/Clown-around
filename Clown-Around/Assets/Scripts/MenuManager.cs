@@ -79,7 +79,7 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.DeleteAll();     // Borra todas las claves guardadas
         PlayerPrefs.Save(); 
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false; //COMENTAR PARA HACER BUILD
+        //UnityEditor.EditorApplication.isPlaying = false; //COMENTAR PARA HACER BUILD
     }
 
     public void CargarNivel1() {
