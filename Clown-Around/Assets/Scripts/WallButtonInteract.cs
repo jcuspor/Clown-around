@@ -7,7 +7,7 @@ public class WallButtonInteract : MonoBehaviour
     private Animator anim;
     private Animator animator;
     private GameObject jugadorEnZona;
-    private bool dentro;
+    private bool dentro = false;
 
     void Start()
     {
@@ -27,12 +27,25 @@ public class WallButtonInteract : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    /*void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             dentro = true;
             jugadorEnZona = other.gameObject;
+        }
+    }*/
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            dentro = true;
+            jugadorEnZona = other.gameObject;
+        }
+        else
+        {
+            dentro = false;
         }
     }
 

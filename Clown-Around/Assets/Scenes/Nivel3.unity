@@ -4611,7 +4611,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687356821}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.044127967, y: 0.7831573, z: 0.055945575, w: 0.61772776}
+  m_LocalRotation: {x: -0.043655165, y: 0.7881425, z: 0.05627883, w: 0.61135775}
   m_LocalPosition: {x: -4.5989976, y: 2.8184795, z: -2.3231366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13316,6 +13316,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hole+Teleport (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8982082597906860492, guid: eb15688de17a8724abc321826a5170a7, type: 3}
+      propertyPath: m_Size.y
+      value: 36.44
+      objectReference: {fileID: 0}
     - target: {fileID: 9173549037451888893, guid: eb15688de17a8724abc321826a5170a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.160778
@@ -13828,19 +13832,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1656450995966407794, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6177278
+      value: 0.61137223
       objectReference: {fileID: 0}
     - target: {fileID: 1656450995966407794, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.044127963
+      value: -0.043665085
       objectReference: {fileID: 0}
     - target: {fileID: 1656450995966407794, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7831572
+      value: 0.78813
       objectReference: {fileID: 0}
     - target: {fileID: 1656450995966407794, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.055945568
+      value: 0.05628938
       objectReference: {fileID: 0}
     - target: {fileID: 3846235875199596749, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalPosition.x

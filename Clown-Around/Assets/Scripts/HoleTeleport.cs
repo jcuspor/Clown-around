@@ -16,5 +16,9 @@ public class HoleTeleport : MonoBehaviour
             cc.enabled = true;
         }
         }
+        else
+        {
+            other.transform.position = teleport.transform.position;
+        }
     }
 }
