@@ -4611,7 +4611,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687356821}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.043655165, y: 0.7881425, z: 0.05627883, w: 0.61135775}
+  m_LocalRotation: {x: -0.044107974, y: 0.78318256, z: 0.055924647, w: 0.61769897}
   m_LocalPosition: {x: -4.5989976, y: 2.8184795, z: -2.3231366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9164,7 +9164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3820736004243753390, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.03
+      value: 1.82
       objectReference: {fileID: 0}
     - target: {fileID: 3820736004243753390, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9198,35 +9198,39 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4639643608289260410, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 5066927491002751462, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
       propertyPath: m_text
-      value: 'Q
+      value: 'Pulsa Q
 
 '
       objectReference: {fileID: 0}
     - target: {fileID: 5066927491002751462, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 9c35e810c88effe49a612a3aa026f7eb, type: 2}
+      objectReference: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
     - target: {fileID: 5066927491002751462, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
       propertyPath: m_fontColor.b
-      value: 0
+      value: 0.3882353
       objectReference: {fileID: 0}
     - target: {fileID: 5066927491002751462, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
       propertyPath: m_fontColor.g
-      value: 0
+      value: 0.21176471
       objectReference: {fileID: 0}
     - target: {fileID: 5066927491002751462, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.7207546
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5066927491002751462, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -4094159272511271074, guid: 9c35e810c88effe49a612a3aa026f7eb, type: 2}
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
     - target: {fileID: 5066927491002751462, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278190264
+      value: 4284691968
       objectReference: {fileID: 0}
     - target: {fileID: 5066927491002751462, guid: c112505b97b44d14e94276bb0f88d19c, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -13832,19 +13836,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1656450995966407794, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.61137223
+      value: 0.61771345
       objectReference: {fileID: 0}
     - target: {fileID: 1656450995966407794, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.043665085
+      value: -0.04411798
       objectReference: {fileID: 0}
     - target: {fileID: 1656450995966407794, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78813
+      value: 0.78316987
       objectReference: {fileID: 0}
     - target: {fileID: 1656450995966407794, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.05628938
+      value: 0.05593512
       objectReference: {fileID: 0}
     - target: {fileID: 3846235875199596749, guid: 7190bd4dad77f9f468e3f9fa59fbd1e6, type: 3}
       propertyPath: m_LocalPosition.x
