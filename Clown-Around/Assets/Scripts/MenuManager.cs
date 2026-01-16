@@ -83,7 +83,7 @@ public class MenuManager : MonoBehaviour
     }
 
     public void CargarNivel1() {
-        SceneManager.LoadScene("Scenes/Mar-Nivel_prueba");
+        SceneManager.LoadScene("Scenes/Nivel1");
         raton();
     }
 

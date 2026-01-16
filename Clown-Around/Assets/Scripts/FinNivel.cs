@@ -13,7 +13,12 @@ public class FinNivel : MonoBehaviour
     public GameObject burstParticle;
     public GameObject panel;
     private bool menu = false;
+    private AudioSource sonido;
 
+    public void Start()
+    {
+        sonido = gameObject.GetComponent<AudioSource>();
+    }
     public void PlayerReachedGoal(int playerNumber)
     {
         if (playerNumber == 1)
@@ -44,6 +49,7 @@ public class FinNivel : MonoBehaviour
             Instantiate(burstParticle, Meta2.transform.position, Quaternion.identity);
             Destroy(Meta1);
             Destroy(Meta2);
+            sonido.Play();
 
             // Ejemplo: si usas el índice de la escena actual como identificador de nivel
             int nivelActual = SceneManager.GetActiveScene().buildIndex;
@@ -56,37 +62,33 @@ public class FinNivel : MonoBehaviour
                 PlayerPrefs.SetInt("NivelMaxDesbloqueado", nivelActual + 1); // Desbloquea el siguiente nivel
                 PlayerPrefs.Save();
             }
-
-            if (nivelActual == 0){
-                StartCoroutine(EsperarYCambiarMenu());
-                ratonMenuVolver();
-                SceneManager.LoadScene("Scenes/Mar-Nivel_prueba"); // Nivel 1
-            }
-            else if (nivelActual == 1){
-                StartCoroutine(EsperarYCambiarMenu());
-                ratonMenuVolver();
-                SceneManager.LoadScene("Scenes/Nivel2");           // Nivel 2
-            }
-            else if (nivelActual == 2){
-                SceneManager.LoadScene("Scenes/Nivel3");           // Nivel 3
-            }
-            else if (nivelActual == 3){
-                SceneManager.LoadScene("Scenes/Nivel4");           // Nivel 4 🎯
-            }
-            else{
-                StartCoroutine(EsperarYCambiarMenu());
-                ratonMenu();
-                SceneManager.LoadScene("Scenes/UI");               // Menú
-            }
+            
+            StartCoroutine(EsperarYCambiarMenu(nivelActual));
 
         }
     }
 
 
 
-    System.Collections.IEnumerator EsperarYCambiarMenu()
+    System.Collections.IEnumerator EsperarYCambiarMenu(int nivelActual)
     {
-        yield return new WaitForSeconds(1f); // Espera 1 segundo
+        yield return new WaitForSeconds(1); // Espera 1 segundo
+        if (nivelActual == 0){
+                SceneManager.LoadScene("Scenes/Nivel1");    // Nivel 1
+            }
+            else if (nivelActual == 1){
+                SceneManager.LoadScene("Scenes/Nivel2");    // Nivel 2
+            }
+            else if (nivelActual == 2){
+                SceneManager.LoadScene("Scenes/Nivel3");    // Nivel 3
+            }
+            else if (nivelActual == 3){
+                SceneManager.LoadScene("Scenes/Nivel4");    // Nivel 4 
+            }
+            else{
+                ratonMenu();
+                SceneManager.LoadScene("Scenes/UI");        // Menú
+            }
         
     }
 
@@ -126,7 +128,7 @@ public class FinNivel : MonoBehaviour
 
     public void seleccionNiveles()
     {
-        SceneManager.LoadScene("Scenes/UI");
+        SceneManager.LoadScene("Scenes/01-splash");
         ratonMenu();
     }
 }

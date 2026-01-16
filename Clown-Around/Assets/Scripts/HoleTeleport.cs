@@ -3,6 +3,12 @@ using UnityEngine;
 public class HoleTeleport : MonoBehaviour
 {
     public GameObject teleport;
+    public AudioSource sonido;
+
+    void Start()
+    {
+        sonido = gameObject.GetComponent<AudioSource>();
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("player2"))
@@ -12,7 +18,8 @@ public class HoleTeleport : MonoBehaviour
         if (cc)
         {
             cc.enabled = false;
-            other.transform.position = teleport.transform.position;     // teleport 
+            sonido.Play();
+            other.transform.position = teleport.transform.position;     // teleport
             cc.enabled = true;
         }
         }

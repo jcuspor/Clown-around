@@ -100,19 +100,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282594126173000669, guid: 8d5242a7b056a50469c656b2fe23a581, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.61136174
+      value: 0.6177337
       objectReference: {fileID: 0}
     - target: {fileID: 3282594126173000669, guid: 8d5242a7b056a50469c656b2fe23a581, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.043658413
+      value: -0.04412836
       objectReference: {fileID: 0}
     - target: {fileID: 3282594126173000669, guid: 8d5242a7b056a50469c656b2fe23a581, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78813905
+      value: 0.7831526
       objectReference: {fileID: 0}
     - target: {fileID: 3282594126173000669, guid: 8d5242a7b056a50469c656b2fe23a581, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.05628239
+      value: 0.055945203
       objectReference: {fileID: 0}
     - target: {fileID: 4385439146607181367, guid: 8d5242a7b056a50469c656b2fe23a581, type: 3}
       propertyPath: m_ControllerManager.Controllers.Array.data[1].InputValue
@@ -222,7 +222,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: ad31f1239a5f49a41a88e979d86cf0db, type: 3}
   m_Resource: {fileID: 8300000, guid: ad31f1239a5f49a41a88e979d86cf0db, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -324,7 +324,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: ad31f1239a5f49a41a88e979d86cf0db, type: 3}
   m_Resource: {fileID: 8300000, guid: ad31f1239a5f49a41a88e979d86cf0db, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

@@ -7,12 +7,14 @@ public class WallButtonInteract : MonoBehaviour
     private Animator anim;
     private Animator animator;
     private GameObject jugadorEnZona;
+    private AudioSource sonido;
     private bool dentro = false;
 
     void Start()
     {
         anim = wall.GetComponent<Animator>();
         animator = gameObject.GetComponent<Animator>();
+        sonido = gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -23,6 +25,7 @@ public class WallButtonInteract : MonoBehaviour
             {
                 anim.SetBool("IsUp", !anim.GetBool("IsUp"));
                 animator.SetTrigger("Press");
+                sonido.Play();
             }
         }
     }
