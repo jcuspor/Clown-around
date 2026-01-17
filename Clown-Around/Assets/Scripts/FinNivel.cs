@@ -87,7 +87,7 @@ public class FinNivel : MonoBehaviour
             }
             else{
                 ratonMenu();
-                SceneManager.LoadScene("Scenes/UI");        // Menú
+                SceneManager.LoadScene("Scenes/01-splash");        // Menú
             }
         
     }
