@@ -18,6 +18,7 @@ public class EnlacePersonaje : MonoBehaviour
     [SerializeField] GameObject particulas2;
     private Vector3 direction1;
     private Vector3 direction2;
+    private AudioSource sonido;
 
     void OnEnable()
     {
@@ -32,6 +33,7 @@ public class EnlacePersonaje : MonoBehaviour
     void Start()
     {
         enlaceAction.started += ctx => ToggleEnlace();; 
+        sonido = gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -60,6 +62,7 @@ public class EnlacePersonaje : MonoBehaviour
         if (enlazados)
         {
             Debug.Log("🟢 Enlace ACTIVADO");
+            sonido.Play();
 
             ActualizarRoles();
 

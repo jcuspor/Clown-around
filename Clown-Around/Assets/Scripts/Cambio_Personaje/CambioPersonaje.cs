@@ -17,6 +17,7 @@ public class CambioPersonaje : MonoBehaviour
     public InputAction switchCharacterAction; // R
     public EnlacePersonaje enlace;
     public GameObject particulaCambio;
+    public AudioSource sonido;
 
     private int activo = 1;
     public int Activo => activo;
@@ -43,6 +44,8 @@ public class CambioPersonaje : MonoBehaviour
 
         personaje1.tag = "Player";
         personaje2.tag = "player2";
+        
+        sonido = gameObject.GetComponent<AudioSource>();
     }
 
     private void CambiaPersonaje()
@@ -52,6 +55,8 @@ public class CambioPersonaje : MonoBehaviour
         // 🔥 SIEMPRE DESENLAZAR AL CAMBIAR
         if (enlace != null)
             enlace.ForzarDesenlaceTotal();
+
+        sonido.Play();
 
         if (activo == 1)
         {
